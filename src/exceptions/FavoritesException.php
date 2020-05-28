@@ -1,19 +1,19 @@
 <?php
 
 /**
- * Lombardia Informatica S.p.A.
+ * Aria S.p.A.
  * OPEN 2.0
  *
  *
- * @package    lispa\amos\favorites\exceptions
+ * @package    open20\amos\favorites\exceptions
  * @category   CategoryName
  */
 
-namespace lispa\amos\favorites\exceptions;
+namespace open20\amos\favorites\exceptions;
 
 /**
  * Class FavoritesException
- * @package lispa\amos\favorites\exceptions
+ * @package open20\amos\favorites\exceptions
  */
 class FavoritesException extends \Exception
 {

@@ -1,21 +1,21 @@
 <?php
 
 /**
- * Lombardia Informatica S.p.A.
+ * Aria S.p.A.
  * OPEN 2.0
  *
  *
- * @package    lispa\amos\favorites\widgets
+ * @package    open20\amos\favorites\widgets
  * @category   CategoryName
  */
 
-namespace lispa\amos\favorites\widgets;
+namespace open20\amos\favorites\widgets;
 
-use lispa\amos\core\helpers\Html;
-use lispa\amos\core\icons\AmosIcons;
-use lispa\amos\favorites\AmosFavorites;
-use lispa\amos\favorites\exceptions\FavoritesException;
-use lispa\amos\notificationmanager\AmosNotify;
+use open20\amos\core\helpers\Html;
+use open20\amos\core\icons\AmosIcons;
+use open20\amos\favorites\AmosFavorites;
+use open20\amos\favorites\exceptions\FavoritesException;
+use open20\amos\notificationmanager\AmosNotify;
 use yii\base\Widget;
 use yii\web\View;
 
@@ -24,14 +24,14 @@ use yii\web\View;
  *
  * Widget to show the favorite icon.
  *
- * @package lispa\amos\favorites\widgets
+ * @package open20\amos\favorites\widgets
  */
 class FavoriteWidget extends Widget
 {
     public $layout = '{beginContainerSection}{favoriteButton}{endContainerSection}';
     
     /**
-     * @var \lispa\amos\core\record\Record $model
+     * @var \open20\amos\core\record\Record $model
      */
     public $model;
     

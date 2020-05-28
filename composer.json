@@ -1,14 +1,14 @@
 {
-    "name": "lispa/amos-favorites",
+    "name": "open20/amos-favorites",
     "description": "Favorites - plugin",
     "keywords": ["amos", "yii2", "favorites"],
     "type": "plugin",
-    "proscription": "BSD-3-Clause",
+    "license": "BSD-3-Clause",
     "require": {
         "php": ">=5.4.0",
-        "lispa/amos-core" : "*",
-        "lispa/amos-admin" : "*",
-        "lispa/amos-notify" : "*"
+        "open20/amos-core": "~1.9",
+        "open20/amos-admin": ">=1.8",
+        "open20/amos-notify": "*"
     },
     "extra": {
         "asset-installer-paths": {
@@ -18,7 +18,7 @@
     },
     "autoload": {
         "psr-4": {
-            "lispa\\amos\\favorites\\": "src"
+            "open20\\amos\\favorites\\": "src"
         }
     }
 }

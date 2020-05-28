@@ -1,28 +1,28 @@
 <?php
 
 /**
- * Lombardia Informatica S.p.A.
+ * Aria S.p.A.
  * OPEN 2.0
  *
  *
- * @package    lispa\amos\favorites\controllers
+ * @package    open20\amos\favorites\controllers
  * @category   CategoryName
  */
 
-namespace lispa\amos\favorites\controllers;
+namespace open20\amos\favorites\controllers;
 
-use lispa\amos\core\record\Record;
-use lispa\amos\favorites\AmosFavorites;
-use lispa\amos\favorites\exceptions\FavoritesException;
-use lispa\amos\favorites\widgets\FavoriteWidget;
-use lispa\amos\notificationmanager\AmosNotify;
+use open20\amos\core\record\Record;
+use open20\amos\favorites\AmosFavorites;
+use open20\amos\favorites\exceptions\FavoritesException;
+use open20\amos\favorites\widgets\FavoriteWidget;
+use open20\amos\notificationmanager\AmosNotify;
 use Yii;
 use yii\web\Controller as YiiController;
 use yii\web\NotFoundHttpException;
 
 /**
  * Class FavoriteController
- * @package lispa\amos\favorites\controllers
+ * @package open20\amos\favorites\controllers
  */
 class FavoriteController extends YiiController
 {
@@ -175,7 +175,7 @@ class FavoriteController extends YiiController
         }
         $module = \Yii::$app->getModule('layout');
         if(empty($module)){
-            $this->layout =  '@vendor/lispa/amos-core/views/layouts/' . (!empty($layout) ? $layout : $this->layout);
+            $this->layout =  '@vendor/open20/amos-core/views/layouts/' . (!empty($layout) ? $layout : $this->layout);
             return true;
         }
         $this->layout = (!empty($layout)) ? $layout : $this->layout;

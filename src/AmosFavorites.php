@@ -1,22 +1,22 @@
 <?php
 
 /**
- * Lombardia Informatica S.p.A.
+ * Aria S.p.A.
  * OPEN 2.0
  *
  *
- * @package    lispa\amos\favorites
+ * @package    open20\amos\favorites
  * @category   CategoryName
  */
 
-namespace lispa\amos\favorites;
+namespace open20\amos\favorites;
 
-use lispa\amos\core\module\AmosModule;
-use lispa\amos\core\module\ModuleInterface;
+use open20\amos\core\module\AmosModule;
+use open20\amos\core\module\ModuleInterface;
 
 /**
  * Class AmosFavorites
- * @package lispa\amos\favorites
+ * @package open20\amos\favorites
  */
 class AmosFavorites extends AmosModule implements ModuleInterface
 {
@@ -32,7 +32,7 @@ class AmosFavorites extends AmosModule implements ModuleInterface
     /**
      * @inheritdoc
      */
-    public $controllerNamespace = 'lispa\amos\favorites\controllers';
+    public $controllerNamespace = 'open20\amos\favorites\controllers';
     
     public $newFileMode = 0666;
     
@@ -57,7 +57,7 @@ class AmosFavorites extends AmosModule implements ModuleInterface
     public function init()
     {
         parent::init();
-        \Yii::setAlias('@lispa/amos/' . static::getModuleName() . '/controllers/', __DIR__ . '/controllers/');
+        \Yii::setAlias('@open20/amos/' . static::getModuleName() . '/controllers/', __DIR__ . '/controllers/');
         // custom initialization code goes here
         \Yii::configure($this, require(__DIR__ . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'config.php'));
     }
