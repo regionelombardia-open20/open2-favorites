@@ -53,9 +53,9 @@ class Favorite extends \open20\amos\favorites\models\base\Favorite
     }
 
 
-    public static function getEditFields()
+    public function getEditFields()
     {
-        $labels = self::attributeLabels();
+        $labels = $this->attributeLabels();
 
         return [
             [
