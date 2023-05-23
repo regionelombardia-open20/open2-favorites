@@ -2,6 +2,7 @@
 
 namespace open20\amos\favorites\widgets;
 
+use open20\amos\favorites\AmosFavorites;
 use open20\amos\favorites\assets\FavoritesAsset;
 use open20\amos\favorites\models\Favorite;
 use yii\base\Widget;
@@ -20,6 +21,8 @@ class ListFavoriteUrlsWidget extends Widget
 
     public $sidebarIcon = 'bookmark';
 
+    public $noFavouriteLabel = '';
+
     public function init()
     {
         parent::init();
@@ -32,10 +35,16 @@ class ListFavoriteUrlsWidget extends Widget
         if ($module->enableFavoritesUrl) {
             $this->registerAsset();
 
+            if(empty($this->noFavouriteLabel)){
+               $this->noFavouriteLabel =  AmosFavorites::t('amosfavorites', 'Attualmente non hai selezionato dei preferiti');
+            }
+
+
             $favorites = Favorite::find()->andWhere(['user_id' => \Yii::$app->user->id])->all();
             if($this->enableTable){
                 return $this->render('table_favorites_urls', [
-                    'favorites' => $favorites
+                    'favorites' => $favorites,
+                    'noFavouriteLabel' => $this->noFavouriteLabel
                 ]);
             }else {
                 return $this->render('list_favorites_urls', [

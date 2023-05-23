@@ -13,10 +13,9 @@
 use yii\helpers\Html;
 use \open20\amos\favorites\AmosFavorites;
 
-
 $js = <<<JS
 
-    $('#select-favorite-url-$idWidget').on('click', function(e){
+    $(document).on('click','#select-favorite-url-$idWidget', function(e){
         e.preventDefault();
         var url = $('#favorite-url-id-$idWidget').val();
         var title = $('#favorite-title-id-$idWidget').val();
@@ -77,7 +76,7 @@ if($widget->positionRelative){
     }
 
 
-    $iconFavorites = '<span class="' . $icon . '"></span>';
+    $iconFavorites = '<span title="'.$label.'" class="' . $icon . '"></span>';
     echo Html::a($iconFavorites, '#', [
         'id' => 'select-favorite-url-'.$idWidget,
         'title' => $label,

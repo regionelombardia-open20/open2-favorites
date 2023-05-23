@@ -94,5 +94,5 @@ if (count($favorites) > 0) {
         </div>
     <?php } ?>
 <?php } else { ?>
-    <small class='no-favorites'><?= AmosFavorites::t('amosfavorites', 'Aggiungi pagine, modelli e asset a questo elenco usando il pulsante segnalibro che trovi in alto a destra in ogni pagina del sito') ?></small>
+    <small class='no-favorites'><?= $noFavouriteLabel ?></small>
 <?php } ?>

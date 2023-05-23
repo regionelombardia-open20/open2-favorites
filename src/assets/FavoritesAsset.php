@@ -30,4 +30,10 @@ class FavoritesAsset extends AssetBundle
      */
     public $depends = [];
 
+    /**
+     * @inheritdoc
+     */
+    public function init() {
+        parent::init();
+    }
 }

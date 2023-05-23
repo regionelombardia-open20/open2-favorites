@@ -56,6 +56,15 @@ class AmosFavorites extends AmosModule implements ModuleInterface
      */
     public $enableFavoritesUrl = true;
 
+    /**
+     * @var array
+     */
+    public $modelsEnabledFavoritesUrl = [
+        'open20\amos\attachments\models\AttachDatabankFile',
+        'open20\amos\attachments\models\AttachGalleryImage'
+    ];
+
+
 
 
     /**

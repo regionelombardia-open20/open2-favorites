@@ -133,6 +133,9 @@ class Favorite extends \open20\amos\favorites\models\base\Favorite
             case 'cms':
                 $label =  AmosFavorites::t('amosfavorites',"Pagine");
                 break;
+            case 'events':
+                $label =  AmosFavorites::t('amosfavorites',"Eventi");
+                break;
             case 'attachments':
                 if($this->content_classname == 'open20\amos\attachments\models\AttachGalleryImage' || $this->controller == 'attach-gallery-image'){
                     $label =  AmosFavorites::t('amosfavorites',"Immagini");

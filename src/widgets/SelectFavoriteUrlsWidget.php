@@ -24,7 +24,9 @@ class SelectFavoriteUrlsWidget extends Widget
     public function init()
     {
         parent::init();
-        $this->id = $this->getId();
+        if (empty($this->id)) {
+            $this->id = $this->getId();
+        }
     }
 
     /**
@@ -35,6 +37,9 @@ class SelectFavoriteUrlsWidget extends Widget
     {
         $module = \Yii::$app->getModule('favorites');
         if ($module->enableFavoritesUrl) {
+            if (!empty($this->classname) && !in_array($this->classname, $module->modelsEnabledFavoritesUrl)) {
+                return '';
+            }
             $this->registerAsset();
             $this->initFavorite();
 
@@ -57,30 +62,31 @@ class SelectFavoriteUrlsWidget extends Widget
      * @return void
      * @throws \yii\base\InvalidConfigException
      */
-    public function initFavorite(){
-        if(empty($this->module)){
+    public function initFavorite()
+    {
+        if (empty($this->module)) {
             $this->module = \Yii::$app->controller->module->id;
         }
 
-        if(empty($this->url)){
+        if (empty($this->url)) {
             $this->url = \Yii::$app->request->getUrl();
         }
-        if(empty($this->controller)){
+        if (empty($this->controller)) {
             $this->controller = \Yii::$app->controller->id;
         }
 
-        if(empty($this->title)){
+        if (empty($this->title)) {
             $title = \Yii::$app->controller->view->title;
-            if(empty($title)) {
-                $title =  \Yii::$app->controller->view->params['titleSection'];
+            if (empty($title)) {
+                $title = \Yii::$app->controller->view->params['titleSection'];
             }
             $this->title = $title;
         }
 
-        if (!empty($model)) {
-            $this->classname = get_class($model);
-            if (!$model->isNewRecord) {
-                $this->content_id = $model->id;
+        if (!empty($this->model)) {
+            $this->classname = get_class($this->model);
+            if (!$this->model->isNewRecord) {
+                $this->content_id = $this->model->id;
             }
         }
     }
@@ -92,7 +98,7 @@ class SelectFavoriteUrlsWidget extends Widget
      */
     public function isUrlSelected($url)
     {
-        $count = Favorite::find()->andWhere(['url' => $url,'user_id' => \Yii::$app->user->id])->count();
+        $count = Favorite::find()->andWhere(['url' => $url, 'user_id' => \Yii::$app->user->id])->count();
         return $count > 0;
 
     }
@@ -100,7 +106,8 @@ class SelectFavoriteUrlsWidget extends Widget
     /**
      * @return void
      */
-    public function registerAsset(){
+    public function registerAsset()
+    {
         FavoritesAsset::register($this->view);
     }
 
