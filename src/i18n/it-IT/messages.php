@@ -8,19 +8,19 @@
  * @package    open20\amos\favorites\i18n\it-IT
  * @category   CategoryName
  */
-
 return [
-  'Add to favorites' => 'Aggiungi ai preferiti',
-  'Error while adding favorite.' => 'Errore durante l\'aggiunta del preferito',
-  'Error while removing favorite.' => 'Errore durante la rimozione del preferito',
-  'Favorite successfully added.' => 'Preferito aggiunto correttamente.',
-  'Favorite successfully removed.' => 'Preferito rimosso correttamente.',
-  'FavoriteWidget: model required' => 'FavoriteWidget: model obbligatorio',
-  'Missing request parameters.' => 'Parametri mancanti nella richiesta.',
-  'Notify module not present.' => 'Modulo notify non presente.',
-  'Remove favorite' => 'Rimuovi preferito',
-  'Request not via POST method.' => 'La richiesta non è stata eseguita con il metodo POST.',
-  'The requested page does not exist.' => 'La pagina richiesta non esiste.',
-  'This action cannot be reached directly' => 'Questa action non può essere chiamata direttamente',
-  'User cannot read the content.' => 'L\'utente non ha i permessi di lettura per questo contenuto.',
+    '#only_ajax_request' => 'Questa action non può essere chiamata direttamente',
+    '#add_to_favorites' => 'Aggiungi ai preferiti',
+    '#remove_favorite' => 'Rimuovi preferito',
+    '#not_post_request' => 'La richiesta non è stata eseguita con il metodo POST.',
+    '#missing_request_params' => 'Parametri mancanti nella richiesta.',
+    '#missing_notify_module' => 'Modulo notify non presente.',
+    '#no_perms_to_read' => "L'utente non ha i permessi di lettura per questo contenuto",
+    '#successfully_added' => 'Preferito aggiunto correttamente',
+    '#error_while_adding' => "Errore durante l'aggiunta del preferito",
+    '#successfully_removed' => 'Preferito rimosso correttamente',
+    '#error_while_removing' => 'Errore durante la rimozione del preferito',
+    '#requested_page_not_found' => 'La pagina richiesta non esiste.',
+    '#widget_model_required' => 'FavoriteWidget: model obbligatorio',
+    '#login_required' => 'Fai login per aggiungere ai preferiti'
 ];
