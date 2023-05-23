@@ -13,6 +13,10 @@ namespace open20\amos\favorites;
 
 use open20\amos\core\module\AmosModule;
 use open20\amos\core\module\ModuleInterface;
+use open20\amos\favorites\assets\AmosFavoriteAsset;
+
+use Yii;
+use yii\helpers\ArrayHelper;
 
 /**
  * Class AmosFavorites
@@ -20,24 +24,28 @@ use open20\amos\core\module\ModuleInterface;
  */
 class AmosFavorites extends AmosModule implements ModuleInterface
 {
+    /**
+     * @inheritdoc
+     */
     public static $CONFIG_FOLDER = 'config';
-    
+
     /**
      * @var string|boolean the layout that should be applied for views within this module. This refers to a view name
      * relative to [[layoutPath]]. If this is not set, it means the layout value of the [[module|parent module]]
      * will be taken. If this is false, layout will be disabled within this module.
      */
     public $layout = 'main';
-    
+
     /**
      * @inheritdoc
      */
     public $controllerNamespace = 'open20\amos\favorites\controllers';
-    
-    public $newFileMode = 0666;
-    
+
+    /**
+     * @inheritdoc
+     */
     public $name = 'Favorites';
-    
+
     /**
      * @var array $modelsEnabled
      */
@@ -47,7 +55,26 @@ class AmosFavorites extends AmosModule implements ModuleInterface
      * @var bool
      */
     public $enableFavoritesUrl = true;
-    
+
+
+
+    /**
+     * @inheritdoc
+     */
+    public function init() {
+        parent::init();
+        AmosFavoriteAsset::register(Yii::$app->view);
+
+        Yii::setAlias('@open20/amos/' . self::getModuleName() . '/controllers', __DIR__ . '/controllers/');
+
+        /*
+         * Configuration: merge default module configurations loaded from config.php
+         * with module configurations set by the application
+         */
+        $config = require(__DIR__ . DIRECTORY_SEPARATOR . self::$CONFIG_FOLDER . DIRECTORY_SEPARATOR . 'config.php');
+
+        Yii::configure($this, ArrayHelper::merge($config, $this));
+    }
     /**
      * @return string
      */
@@ -55,26 +82,15 @@ class AmosFavorites extends AmosModule implements ModuleInterface
     {
         return 'favorites';
     }
-    
-    /**
-     * @inheritdoc
-     */
-    public function init()
-    {
-        parent::init();
-        \Yii::setAlias('@open20/amos/' . static::getModuleName() . '/controllers/', __DIR__ . '/controllers/');
-        // custom initialization code goes here
-        \Yii::configure($this, require(__DIR__ . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'config.php'));
-    }
-    
+
     /**
      * @inheritdoc
      */
     public function getWidgetGraphics()
     {
-        return NULL;
+        return null;
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -82,7 +98,7 @@ class AmosFavorites extends AmosModule implements ModuleInterface
     {
         return [];
     }
-    
+
     /**
      * @inheritdoc
      */
