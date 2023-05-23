@@ -30,10 +30,10 @@ $this->registerJs($js);
     <div class="dropdown dropright">
         <a id="open-dropdown-favorites" href="#" class="nav-item-link" role="button" id="dropdownMenuDropright" data-toggle="dropdown"
            aria-haspopup="true" aria-expanded="false"
-           title="<?= AmosFavorites::t('amosfavorites', "Segnalibri") ?>">
-            <span class="mdi mdi-bookmark icon-sidebar"></span>
+           title="<?= AmosFavorites::t('amosfavorites', $listDescription) ?>">
+            <span class="mdi mdi-<?= $listIcon ?> icon-sidebar"></span>
             <span class="nav-label-link">
-                <?= AmosFavorites::t('amosfavorites', 'Segnalibri') ?>
+                <?= AmosFavorites::t('amosfavorites', $listTitle) ?>
             </span>
             <span class="mdi mdi-chevron-right icon-expand icon"></span>
         </a>

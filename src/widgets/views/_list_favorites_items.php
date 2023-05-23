@@ -19,7 +19,7 @@ use open20\amos\favorites\AmosFavorites;
                         'title' => $favorite->getFavoriteType() . $favorite->title,
                         'data-toggle' => 'tooltip',
                         'data-html' => 'true',
-
+                        'target' => '_blank'
                     ]) ?>
             </li>
         <?php } ?>

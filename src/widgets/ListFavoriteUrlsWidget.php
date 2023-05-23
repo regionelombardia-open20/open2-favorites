@@ -10,6 +10,16 @@ class ListFavoriteUrlsWidget extends Widget
 {
     public $enableTable = false;
 
+/*
+ * I seguenti parametri servono per compatibilità con la sidebar redattore, senza non è possibile personalizzare testo e icona del widget
+ * attraverso il model cms-dash-sidebar-item
+ */
+    public $sidebarTitle = 'Segnalibri';
+
+    public $sidebarMousehoverDescription = 'Segnalibri';
+
+    public $sidebarIcon = 'bookmark';
+
     public function init()
     {
         parent::init();
@@ -29,7 +39,10 @@ class ListFavoriteUrlsWidget extends Widget
                 ]);
             }else {
                 return $this->render('list_favorites_urls', [
-                    'favorites' => $favorites
+                    'favorites' => $favorites,
+                    'listTitle' => $this->sidebarTitle,
+                    'listDescription' => $this->sidebarMousehoverDescription,
+                    'listIcon' => $this->sidebarIcon
                 ]);
             }
         }
