@@ -36,7 +36,7 @@ class SelectFavoriteUrlsWidget extends Widget
     public function run()
     {
         $module = \Yii::$app->getModule('favorites');
-        if ($module->enableFavoritesUrl) {
+        if ($module->enableFavoritesUrl && !\Yii::$app->user->isGuest && \Yii::$app->user->can('FAVORITE_READER')) {
             if (!empty($this->classname) && !in_array($this->classname, $module->modelsEnabledFavoritesUrl)) {
                 return '';
             }

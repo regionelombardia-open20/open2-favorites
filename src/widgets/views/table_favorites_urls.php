@@ -21,7 +21,18 @@ $js = <<<JS
                     success: function (data) {
                         if(data['action'] == 'unselected'){
                             var row = $(link).parents('.itemRowDashboardTab');
-                            $(row).remove();
+                            var tabFavorites = row.parent();
+                            
+                            $(row).fadeOut("normal", function() {
+                                $(this).remove();
+                            });
+                            
+                            var numItems = $('.delete-favorite-confirm').length;                       
+                            if (numItems <= 1) {
+                                tabFavorites.html('<small class="no-favorites">{$noFavouriteLabel}</small>').fadeIn(1000);
+                            }
+                            
+                            $('.modal-backdrop').hide();
                         }
                     
                     }

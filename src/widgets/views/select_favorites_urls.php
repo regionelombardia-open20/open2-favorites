@@ -35,10 +35,10 @@ $js = <<<JS
                          favoriteContentId: content_id
                      },
                     success: function (data) {
-                        // console.log(data);
                         if(data['action'] == 'selected'){
                             $('#select-favorite-url-$idWidget span').attr('class', 'mdi mdi-bookmark');
                             $('#select-favorite-url-$idWidget span').attr('title', 'Rimuovi dai segnalibri');
+                            $('#select-favorite-url-$idWidget').attr('data-original-title', 'Rimuovi dai segnalibri');
                             $('#select-favorite-url-$idWidget').addClass('added-to-favourites');
                         }else{
                             $('#select-favorite-url-$idWidget span').attr('class', 'mdi mdi-bookmark-outline');

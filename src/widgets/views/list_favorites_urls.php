@@ -14,13 +14,11 @@ $this->registerJsVar('labelCaricamento', $labelCaricamento);
 $js = <<<JS
 $('#open-dropdown-favorites').click(function(){
     $('#favorite-list-id').html('<span class="label-caricamento">'+labelCaricamento+'</span>');
-     // $('#container-favorite-list-id').hide();
     $.ajax({
         url: '/favorites/favorite/favorite-list-ajax',
         type: 'get',
         success: function (data) {
             $('#favorite-list-id').html(data);
-            // $('#container-favorite-list-id').show();
         }
     });
 });
