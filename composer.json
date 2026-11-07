@@ -1,5 +1,6 @@
 {
     "name": "open20/amos-favorites",
+    "license": "GPL-3.0-or-later",
     "description": "Favorites - plugin",
     "keywords": ["amos", "yii2", "favorites"],
     "type": "plugin",
